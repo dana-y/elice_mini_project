@@ -14,7 +14,6 @@ const GlobalStyles = createGlobalStyle`
     color: inherit;
   }
   button {
-    width: 100%;
     background: none;
     border: none;
     padding: 0;
