@@ -39,7 +39,9 @@ export const ContentButton = styled.button`
   padding: 5px 10px;
   margin: 5px;
   color: gray;
-  &:hover {
-    color: black;
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.color.elicePurple};
+    color: white;
   }
 `;

@@ -1,4 +1,5 @@
 import Categories from '../../components/categories/Categories';
+import CourseCards from '../../components/courseCards/CourseCards';
 import SearchArea from '../../components/searchArea/SearchArea';
 import { Layout } from './style';
 
@@ -7,6 +8,7 @@ const SearchPage = () => {
     <Layout>
       <SearchArea />
       <Categories />
+      <CourseCards />
     </Layout>
   );
 };
