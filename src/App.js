@@ -1,8 +1,12 @@
+import GlobalStyles from './GlobalStyles';
+import SearchPage from './pages/searchPage/SearchPage';
+
 function App() {
   return (
-    <div className="App">
-      <h1>test</h1>
-    </div>
+    <>
+      <GlobalStyles />
+      <SearchPage />
+    </>
   );
 }
 
