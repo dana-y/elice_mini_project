@@ -1,6 +1,6 @@
 # elice_mini_project
 
-### 사용한 skill
+### 사용한 Skills
 
 - react
 - axios
