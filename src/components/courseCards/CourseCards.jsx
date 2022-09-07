@@ -4,7 +4,7 @@ import { getData } from '../../apis/cards';
 import {
   calcOffset,
   cardData,
-  freeStatus,
+  isfreeFiltered,
   nowPage,
   searchInputValue,
   total,
@@ -15,10 +15,11 @@ import { CardCount, CardsContainer } from './style';
 const CourseCards = () => {
   const [getCardData, setCardData] = useRecoilState(cardData);
   const [totalCount, setTotalCount] = useRecoilState(total);
-  const filterCondition = useRecoilValue(freeStatus);
   const titleValue = useRecoilValue(searchInputValue);
   const pageNum = useRecoilValue(nowPage);
   const offset = useRecoilValue(calcOffset);
+  const filterCondition = useRecoilValue(isfreeFiltered);
+  console.log(filterCondition);
 
   const { data } = useQuery(
     ['getData', pageNum, titleValue, filterCondition, offset],
@@ -38,6 +39,7 @@ const CourseCards = () => {
       <CardsContainer>
         {getCardData?.map(card => (
           <Card
+            key={card.id}
             enroll_type={card.enroll_type}
             is_free={card.is_free}
             title={card.title}

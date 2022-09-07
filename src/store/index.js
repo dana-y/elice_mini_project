@@ -5,8 +5,27 @@ const { persistAtom } = recoilPersist();
 
 export const freeStatus = atom({
   key: 'freeStatus',
-  default: [{}, {}],
-  // effects_UNSTABLE: [persistAtom],
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const payStatus = atom({
+  key: 'payStatus',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const isfreeFiltered = selector({
+  key: 'isfreeFiltered',
+  get: ({ get }) => {
+    const getFreeStatus = get(freeStatus);
+    const getPayStatus = get(payStatus);
+    let arr = [];
+    getFreeStatus && arr.push({ $or: [{ enroll_type: 0, is_free: true }] });
+    getPayStatus && arr.push({ $or: [{ enroll_type: 0, is_free: false }] });
+    return arr;
+  },
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const cardData = atom({
@@ -20,8 +39,9 @@ export const total = atom({
 });
 
 export const searchInputValue = atom({
-  key: 'searchInput',
+  key: 'searchInputValue',
   default: '',
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const nowPage = atom({

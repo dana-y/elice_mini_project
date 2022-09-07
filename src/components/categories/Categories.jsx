@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { freeStatus } from '../../store';
+import { freeStatus, payStatus } from '../../store';
+// import { freeStatus, payStatus } from '../../store';
 import {
   Category,
   ContentButton,
@@ -10,24 +10,8 @@ import {
 } from './style';
 
 const Categories = () => {
-  const [conditionRecoil, setConditionStatus] = useRecoilState(freeStatus);
-
-  const [localFreeStatus, setFreeStatus] = useState(false);
-  const [localPayStatus, setPayStatus] = useState(false);
-  const [freeCondition, payCondition] = [
-    { enroll_type: 0, is_free: true },
-    { enroll_type: 0, is_free: false },
-  ];
-
-  const onClickFreeBtn = setFilter => {
-    setFilter(prev => !prev);
-    setConditionStatus([
-      localFreeStatus ? freeCondition : {},
-      localPayStatus ? payCondition : {},
-    ]);
-    console.log(conditionRecoil);
-    console.log(localFreeStatus, localPayStatus);
-  };
+  const [freeCondition, setFreeCondition] = useRecoilState(freeStatus);
+  const [payCondition, setPayCondition] = useRecoilState(payStatus);
 
   return (
     <>
@@ -86,14 +70,14 @@ const Categories = () => {
           <Subject>가격</Subject>
           <Contents>
             <ContentButton
-              onClick={() => onClickFreeBtn(setFreeStatus)}
-              className={localFreeStatus && 'active'}
+              onClick={() => setFreeCondition(prev => !prev)}
+              className={freeCondition && 'active'}
             >
               무료
             </ContentButton>
             <ContentButton
-              onClick={() => onClickFreeBtn(setPayStatus)}
-              className={localPayStatus && 'active'}
+              onClick={() => setPayCondition(prev => !prev)}
+              className={payCondition && 'active'}
             >
               유료
             </ContentButton>
