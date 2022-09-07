@@ -4,17 +4,17 @@ export const PageContainer = styled.div`
   margin: 20px auto;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 `;
 export const FlexPageNumberBox = styled.ul`
   display: flex;
-  gap: 20px;
+  gap: 10px;
 `;
 
 export const ArrowBtn = styled.button`
-  color: black;
+  color: #222;
   &:disabled {
-    color: #999;
+    color: #ccc;
   }
 `;
 

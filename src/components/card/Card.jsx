@@ -29,15 +29,15 @@ const Card = ({
         <InfoList logoURL={logoURL}>
           <Info>
             <InfoIcon icon={faChartColumn} />
-            <IconText>난이도:</IconText>
+            <IconText>난이도 : 미설정</IconText>
           </Info>
           <Info>
             <InfoIcon icon={faLaptop} />
-            <IconText>수업:</IconText>
+            <IconText>수업 : 온라인</IconText>
           </Info>
           <Info>
             <InfoIcon icon={faCalendarDays} />
-            <IconText>기간:</IconText>
+            <IconText>기간 : 무제한</IconText>
           </Info>
         </InfoList>
       </CardContainer>

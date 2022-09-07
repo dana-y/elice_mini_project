@@ -56,7 +56,9 @@ export const InfoList = styled.ul`
     width: 52px;
     height: 52px;
     background-image: url(${props => props.logoURL});
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 `;
 export const InfoIcon = styled(FontAwesomeIcon)`
