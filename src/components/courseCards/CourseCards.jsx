@@ -1,7 +1,13 @@
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { getData } from '../../apis/cards';
-import { cardData, freeStatus, searchInputValue, total } from '../../store';
+import {
+  cardData,
+  freeStatus,
+  offset,
+  searchInputValue,
+  total,
+} from '../../store';
 import Card from '../card/Card';
 import { CardCount, CardsContainer } from './style';
 
@@ -10,10 +16,11 @@ const CourseCards = () => {
   const [totalCount, setTotalCount] = useRecoilState(total);
   const filterCondition = useRecoilValue(freeStatus);
   const titleValue = useRecoilValue(searchInputValue);
+  const offSetNum = useRecoilValue(offset);
 
   const { data } = useQuery(
-    ['getData', titleValue, filterCondition],
-    () => getData(titleValue, filterCondition),
+    ['getData', titleValue, filterCondition, offSetNum],
+    () => getData(titleValue, filterCondition, offSetNum),
     {
       onSuccess: data => {
         setCardData(data.courses);

@@ -23,3 +23,13 @@ export const searchInputValue = atom({
   key: 'searchInput',
   default: '',
 });
+
+export const nowPage = atom({
+  key: 'nowPage',
+  default: 1,
+});
+
+export const offset = atom({
+  key: 'offsetNum',
+  default: 0,
+});
