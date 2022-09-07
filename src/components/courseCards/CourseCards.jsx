@@ -2,9 +2,10 @@ import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { getData } from '../../apis/cards';
 import {
+  calcOffset,
   cardData,
   freeStatus,
-  offset,
+  nowPage,
   searchInputValue,
   total,
 } from '../../store';
@@ -16,16 +17,16 @@ const CourseCards = () => {
   const [totalCount, setTotalCount] = useRecoilState(total);
   const filterCondition = useRecoilValue(freeStatus);
   const titleValue = useRecoilValue(searchInputValue);
-  const offSetNum = useRecoilValue(offset);
+  const pageNum = useRecoilValue(nowPage);
+  const offset = useRecoilValue(calcOffset);
 
   const { data } = useQuery(
-    ['getData', titleValue, filterCondition, offSetNum],
-    () => getData(titleValue, filterCondition, offSetNum),
+    ['getData', pageNum, titleValue, filterCondition, offset],
+    () => getData(titleValue, filterCondition, offset),
     {
       onSuccess: data => {
         setCardData(data.courses);
         setTotalCount(data.course_count);
-        console.log('완료');
       },
     },
   );
