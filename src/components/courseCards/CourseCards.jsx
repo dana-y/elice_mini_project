@@ -25,6 +25,7 @@ const CourseCards = () => {
       onSuccess: data => {
         setCardData(data.courses);
         setTotalCount(data.course_count);
+        console.log('완료');
       },
     },
   );
