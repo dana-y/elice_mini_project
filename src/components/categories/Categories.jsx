@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { freeStatus } from '../../store';
 import {
   Category,
   ContentButton,
@@ -7,6 +10,25 @@ import {
 } from './style';
 
 const Categories = () => {
+  const [conditionRecoil, setConditionStatus] = useRecoilState(freeStatus);
+
+  const [localFreeStatus, setFreeStatus] = useState(false);
+  const [localPayStatus, setPayStatus] = useState(false);
+  const [freeCondition, payCondition] = [
+    { enroll_type: 0, is_free: true },
+    { enroll_type: 0, is_free: false },
+  ];
+
+  const onClickFreeBtn = setFilter => {
+    setFilter(prev => !prev);
+    setConditionStatus([
+      localFreeStatus ? freeCondition : {},
+      localPayStatus ? payCondition : {},
+    ]);
+    console.log(conditionRecoil);
+    console.log(localFreeStatus, localPayStatus);
+  };
+
   return (
     <>
       <FlexContainer>
@@ -63,8 +85,18 @@ const Categories = () => {
         <Category>
           <Subject>가격</Subject>
           <Contents>
-            <ContentButton>무료</ContentButton>
-            <ContentButton>유료</ContentButton>
+            <ContentButton
+              onClick={() => onClickFreeBtn(setFreeStatus)}
+              className={localFreeStatus && 'active'}
+            >
+              무료
+            </ContentButton>
+            <ContentButton
+              onClick={() => onClickFreeBtn(setPayStatus)}
+              className={localPayStatus && 'active'}
+            >
+              유료
+            </ContentButton>
           </Contents>
         </Category>
       </FlexContainer>
