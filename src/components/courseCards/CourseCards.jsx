@@ -19,9 +19,8 @@ const CourseCards = () => {
   const pageNum = useRecoilValue(nowPage);
   const offset = useRecoilValue(calcOffset);
   const filterCondition = useRecoilValue(isfreeFiltered);
-  console.log(filterCondition);
 
-  const { data } = useQuery(
+  const { data, isError, error } = useQuery(
     ['getData', pageNum, titleValue, filterCondition, offset],
     () => getData(titleValue, filterCondition, offset),
     {
@@ -29,8 +28,15 @@ const CourseCards = () => {
         setCardData(data.courses);
         setTotalCount(data.course_count);
       },
+      onError: err => {
+        console.log(err.message);
+      },
     },
   );
+
+  if (isError) {
+    return <span>Error: {error.message}</span>;
+  }
 
   return (
     <>
