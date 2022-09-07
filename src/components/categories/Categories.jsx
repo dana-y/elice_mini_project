@@ -1,6 +1,5 @@
 import { useRecoilState } from 'recoil';
 import { freeStatus, payStatus } from '../../store';
-// import { freeStatus, payStatus } from '../../store';
 import {
   Category,
   ContentButton,

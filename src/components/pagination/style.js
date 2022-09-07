@@ -6,6 +6,7 @@ export const PageContainer = styled.div`
   justify-content: center;
   gap: 15px;
 `;
+
 export const FlexPageNumberBox = styled.ul`
   display: flex;
   gap: 10px;

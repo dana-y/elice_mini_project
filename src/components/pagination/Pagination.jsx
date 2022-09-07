@@ -23,13 +23,10 @@ const Pagination = () => {
     direction === 'right'
       ? setNowPageNum(prev => prev + 1)
       : setNowPageNum(prev => prev - 1);
-    console.log(nowPageNum);
   };
 
   const onClickPageNum = async e => {
     setNowPageNum(Number(e.target.innerText));
-    console.log(e.target.innerText);
-    console.log(nowPageNum);
   };
 
   return (

@@ -9,6 +9,5 @@ export const getData = async (inputTitle, freeStatus, offset) => {
     `?filter_conditions=${filter_conditions}
     &offset=${offset}&count=20`,
   );
-  console.log(res);
   return res.data;
 };

@@ -9,4 +9,5 @@ export const CardsContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  margin-top: 20px;
 `;

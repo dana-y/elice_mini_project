@@ -15,31 +15,33 @@ export const Category = styled.div`
   &:nth-child(n + 2) {
     border-top: 1px solid lightgray;
   }
+  background-color: #f9fafc;
 `;
 
-export const Subject = styled.span`
-  background-color: #f9fafc;
+export const Subject = styled.div`
+  color: gray;
   padding: 15px;
   width: 110px;
-  color: gray;
   font-weight: 600;
-  height: 100%;
-  border-right: 1px solid lightgray;
   flex-shrink: 0;
 `;
 
 export const Contents = styled.div`
+  border-left: 1px solid lightgray;
   display: inline-block;
+  height: 100%;
   background-color: white;
   padding: 0 10px;
+  flex-grow: 1;
 `;
+
 export const ContentButton = styled.button`
   display: inline-block;
   text-align: center;
   background-color: #f0f1f3;
   border-radius: 15px;
   padding: 8px 13px;
-  margin: 5px;
+  margin: 8px 5px;
   color: gray;
   &:hover,
   &.active {

@@ -61,6 +61,7 @@ export const InfoList = styled.ul`
     background-position: center;
   }
 `;
+
 export const InfoIcon = styled(FontAwesomeIcon)`
   width: 24px;
   height: 24px;

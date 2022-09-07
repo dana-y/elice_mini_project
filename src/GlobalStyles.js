@@ -21,7 +21,6 @@ const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
   body {
-    width: 100vw;
     height: 100vh;
     background-color: rgb(240, 241, 243);
   }
