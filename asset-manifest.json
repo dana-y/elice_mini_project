@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/elice_mini_project/static/js/main.f1a09102.js",
+    "main.js": "/elice_mini_project/static/js/main.250f4448.js",
     "index.html": "/elice_mini_project/index.html",
-    "main.f1a09102.js.map": "/elice_mini_project/static/js/main.f1a09102.js.map"
+    "main.250f4448.js.map": "/elice_mini_project/static/js/main.250f4448.js.map"
   },
   "entrypoints": [
-    "static/js/main.f1a09102.js"
+    "static/js/main.250f4448.js"
   ]
 }
