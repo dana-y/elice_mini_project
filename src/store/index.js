@@ -18,3 +18,8 @@ export const total = atom({
   key: 'totalCourse',
   default: 0,
 });
+
+export const searchInputValue = atom({
+  key: 'searchInput',
+  default: '',
+});
