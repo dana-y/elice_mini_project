@@ -11,7 +11,7 @@ export const SearchInput = styled.input`
   }
   &:hover,
   &:focus {
-    border: 1px solid ${props => props.theme.color.elicePurple};
+    border: 1px solid #5426CC;
     outline: none;
   }
 `;

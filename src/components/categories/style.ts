@@ -1,4 +1,4 @@
-const { default: styled } = require('styled-components');
+import styled from "styled-components";
 
 export const FlexContainer = styled.div`
   display: flex;
@@ -35,7 +35,7 @@ export const Contents = styled.div`
   flex-grow: 1;
 `;
 
-export const ContentButton = styled.button`
+export const ContentButton = styled.button<{ theme: [] }>`
   display: inline-block;
   text-align: center;
   background-color: #f0f1f3;
@@ -45,7 +45,7 @@ export const ContentButton = styled.button`
   color: gray;
   &:hover,
   &.active {
-    background-color: ${props => props.theme.color.elicePurple};
+    background-color: #722DE9;
     color: white;
   }
 `;

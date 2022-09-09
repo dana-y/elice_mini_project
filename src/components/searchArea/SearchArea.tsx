@@ -1,24 +1,29 @@
+import React, { useEffect, useMemo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { SearchContainer, SearchInput } from './style';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useRecoilState } from 'recoil';
-import { searchInputValue } from '../../store';
 import { debounce } from 'lodash';
-import { useEffect, useState } from 'react';
+
+import { searchInputValue } from '../../store';
+import { SearchContainer, SearchInput } from './style';
 
 const SearchArea = () => {
-  const [inputValue, setInputValue] = useRecoilState(searchInputValue);
-  const [localInputValue, setLocalInputValue] = useState('');
+  const [inputValue, setInputValue] = useRecoilState<string>(searchInputValue);
+  const [localInputValue, setLocalInputValue] = useState<string>('');
 
   useEffect(() => {
     setLocalInputValue(inputValue);
   }, []);
 
-  const debounceInput = debounce(value => {
-    setInputValue(value);
-  }, 300);
+  const debounceInput = useMemo(
+    () =>
+      debounce((query: string) => {
+        setInputValue(query);
+      }, 300),
+    [],
+  );
 
-  const onChangeInput = value => {
+  const onChangeInput = (value: string) => {
     setLocalInputValue(value);
     debounceInput(value);
   };
@@ -33,7 +38,9 @@ const SearchArea = () => {
       <SearchInput
         type='text'
         placeholder='배우고 싶은 언어, 기술을 검색해보세요.'
-        onChange={e => onChangeInput(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChangeInput(e.target.value)
+        }
         value={localInputValue}
       />
     </SearchContainer>

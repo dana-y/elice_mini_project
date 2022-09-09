@@ -43,7 +43,11 @@ export const Description = styled.div`
   margin-bottom: 20px;
 `;
 
-export const InfoList = styled.ul`
+interface InfoListProps {
+  logoURL: string;
+}
+
+export const InfoList = styled.ul<InfoListProps>`
   display: flex;
   flex-direction: column;
   gap: 5px;

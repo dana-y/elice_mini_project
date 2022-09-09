@@ -1,3 +1,4 @@
+import React from 'react';
 import GlobalStyles from './GlobalStyles';
 import SearchPage from './pages/searchPage/SearchPage';
 

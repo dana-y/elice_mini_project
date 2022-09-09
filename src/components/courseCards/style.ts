@@ -11,3 +11,8 @@ export const CardsContainer = styled.ul`
   gap: 16px;
   margin-top: 20px;
 `;
+
+export const Line = styled.div`
+  width: 100%;
+  border-top: 1px solid #999;
+`;

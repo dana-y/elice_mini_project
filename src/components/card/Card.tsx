@@ -1,3 +1,7 @@
+import React from 'react';
+import { faChartColumn , faLaptop } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays } from '@fortawesome/free-regular-svg-icons';
+
 import {
   CardContainer,
   Description,
@@ -8,24 +12,30 @@ import {
   Label,
   Title,
 } from './style';
-import { faChartColumn } from '@fortawesome/free-solid-svg-icons';
-import { faLaptop } from '@fortawesome/free-solid-svg-icons';
-import { faCalendarDays } from '@fortawesome/free-regular-svg-icons';
+
+interface CardProps {
+  enrollType: number;
+  isFree: boolean;
+  title: string;
+  shortDescription: string;
+  id: string;
+  logoURL: string;
+}
 
 const Card = ({
-  enroll_type,
-  is_free,
+  enrollType,
+  isFree,
   title,
-  short_description,
+  shortDescription,
   id,
   logoURL,
-}) => {
+}: CardProps): JSX.Element => {
   return (
     <li key={id}>
       <CardContainer>
-        <Label>{enroll_type === 4 ? '구독' : is_free ? '무료' : '유료'}</Label>
+        <Label>{enrollType === 4 ? '구독' : isFree ? '무료' : '유료'}</Label>
         <Title>{title}</Title>
-        <Description>{short_description}</Description>
+        <Description>{shortDescription}</Description>
         <InfoList logoURL={logoURL}>
           <Info>
             <InfoIcon icon={faChartColumn} />
