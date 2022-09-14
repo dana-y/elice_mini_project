@@ -2,12 +2,13 @@
 
 ### 사용한 Skills
 
-- react
-- axios
-- react-query
-- styled-component
-- recoil
-- lodash (메소드)
+- TypeScript
+- React
+- Axios
+- React-Query
+- Styled-Component
+- Recoil
+- Lodash (메소드)
 
 <br>
 
