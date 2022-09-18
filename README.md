@@ -1,5 +1,7 @@
 # elice_mini_project
 
+### 페이지 주소 : https://dana-y.github.io/elice_mini_project/
+
 ### 사용한 Skills
 
 - TypeScript
